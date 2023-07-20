@@ -15,27 +15,21 @@
 
         <div class="container">
             <div class="slider-wrapper" tabindex="0">
-
-                <div class="item">
-                    <img src="imageIndex"  alt="Spiderman"/>
+                <div v-for="(itemSlide, i) in slides" class="item":class="activeImageIndex === i ? 'active' : ''">
+                    <img :src="itemSlide.image" alt="">
                     <div class="text">
-                        <h3>Spiderman</h3>
-                        <p>
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit
-                            tempore aliquid deleniti aut
-                            veniam inventore eligendi ex ad ullam, cumque provident totam omnis, magnam dolores dolorum
-                            corporis.
-                        </p>
+                        <h3>{{ itemSlide.title }}</h3>
+                        <p>{{ itemSlide.text }}</p>
                     </div>
                 </div>
 
                 <div class="thumbs">
                     <div class="prev" @click="onPrevClick"></div>
                     <div class="next" @click="onNextClick"></div>
-                    <div class="thumb" v-for="(imgSource, i) in slides"
+                    <div class="thumb" v-for="(itemSlide, i) in slides"
                     v-bind:class="(activeImageIndex === i ? 'active' : '')"
                     @click="onThumbClick(i)">
-                        <img :src="imgSource.image" alt="Svezia"/>
+                        <img :src="itemSlide.image" alt="Svezia"/>
                     </div>
                 </div>
 

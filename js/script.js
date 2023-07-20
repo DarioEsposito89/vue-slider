@@ -37,7 +37,7 @@ const app = createApp({
         onThumbClick(imageIndex) {
             console.log(imageIndex);
             this.activeImageIndex = imageIndex;
-            
+
         },
         onNextClick() {
             this.activeImageIndex++
@@ -46,6 +46,12 @@ const app = createApp({
             this.activeImageIndex--
         }
     },
+
+    mounted() {
+        setInterval(() => {
+            this.onNextClick();
+        }, 3000)
+    }
 
 }).mount('#app')
 

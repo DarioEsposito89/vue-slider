@@ -15,7 +15,8 @@
 
         <div class="container">
             <div class="slider-wrapper" tabindex="0">
-                <div v-for="(itemSlide, i) in slides" 
+                <!-- CICLO V-FOR PER STAMPARE LE IMMAGINI e MOSTRARE L'IMMAGINE CON INDICE ATTIVO -->
+                <div v-for="(itemSlide, i) in slides"
                 class="item":class="activeImageIndex === i ? 'active' : ''"
                 v-show="activeImageIndex === i">
                     <img :src="itemSlide.image" alt="">
@@ -26,8 +27,10 @@
                 </div>
 
                 <div class="thumbs">
+                    <!-- Richiamo le funzioni al click per avanzare e andare indietro con le slide -->
                     <div class="prev" @click="onPrevClick"></div>
                     <div class="next" @click="onNextClick"></div>
+                    <!-- Ciclo che stampa le immagini nella Thumb -->
                     <div class="thumb" v-for="(itemSlide, i) in slides"
                     v-bind:class="(activeImageIndex === i ? 'active' : '')"
                     @click="onThumbClick(i)">

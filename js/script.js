@@ -41,9 +41,15 @@ const app = createApp({
         },
         onNextClick() {
             this.activeImageIndex++
+            if (this.activeImageIndex > this.slides.length - 1) {
+                this.activeImageIndex = 0;
+            }
         },
         onPrevClick() {
             this.activeImageIndex--
+            if (this.activeImageIndex < 0) {
+                this.activeImageIndex = this.slides.length - 1;
+            }
         }
     },
 
